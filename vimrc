@@ -35,7 +35,7 @@ syntax sync maxlines=1
 " snippets config
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsListSnippets="<c-l>"              " list all snippets for current filetype
-let g:UltiSnipsSnippetsDir = "~/.vim/ultisnips"  " custom snippets dir
+"let g:UltiSnipsSnippetsDir = "~/.vim/ultisnips"  " custom snippets dir
 let g:UltiSnipsEditSplit="vertical"              " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
