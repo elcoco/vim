@@ -10,13 +10,18 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'ap/vim-css-color'
+
+" Snippets!
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 set nocompatible
 
 " Platform specific settings
 if has('unix')
-    set directory=./tmp/swap            " keep all .swp files in one place (create dir!)
+    set directory=~/.vim/tmp/swap            " keep all .swp files in one place (create dir!)
+    set viminfo+='1000,n~/.vim/tmp/viminfo   " save vim state
     set guifont=TerminessTTF\ Nerd\ Font\ 16
 else
     set guifont=Consolas:h10:cANSI
@@ -24,10 +29,12 @@ endif
 
 set encoding=utf8
 
-set viminfo+='1000,n./tmp//viminfo
-
 " hopefully helps against stupid syntax color problems when quotes are not closed
 syntax sync maxlines=1
+
+" snippets config
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-l>"         " list all snippets for current filetype
 
 " vim instant markdown plugin
 filetype plugin on
