@@ -1,3 +1,19 @@
+snippet pr "print" b
+print(f"${0:epic text her}")
+endsnippet
+
+snippet ld "logger debug" b
+logger.debug(f"${0:debug message}")
+endsnippet
+
+snippet li "logger info" b
+logger.info(f"${0:info message}")
+endsnippet
+
+snippet le "logger error" b
+logger.error(f"${0:error message}")
+endsnippet
+
 snippet logging "logging" b
 formatter_info = logging.Formatter('%(message)s')
 formatter_debug = logging.Formatter('%(levelname)5s %(module)3s.%(funcName)-10s %(lineno)3s %(message)s')
@@ -10,13 +26,12 @@ streamhandler = logging.StreamHandler(sys.stdout)
 streamhandler.setLevel(logging.DEBUG)
 logger.addHandler(streamhandler)
 
-fileHandler = logging.FileHandler('$1')
+fileHandler = logging.FileHandler('$1.log')
 fileHandler.setLevel(logging.DEBUG)
 logger.addHandler(fileHandler)
 endsnippet
 
 snippet argparse "argparse" b
-
     def parse_args(self):
 		parser = argparse.ArgumentParser(description='${1:description}')
 		parser.add_argument('-${2:short arg}', '--${3:long arg}',         help="${4:help}", type=int, default=${5:default_value})
