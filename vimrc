@@ -20,7 +20,7 @@ set nocompatible
 
 " Platform specific settings
 if has('unix')
-    set directory=~/.vim/tmp/swap            " keep all .swp files in one place (create dir!)
+    set directory=~/.vim/tmp/swap            " keep all .swp files in one place
     set viminfo+='1000,n~/.vim/tmp/viminfo   " save vim state
     let g:netrw_home='~/.vim/tmp'            " keep netrwhist file in tmp dir
     set guifont=TerminessTTF\ Nerd\ Font\ 16
@@ -82,12 +82,13 @@ nnoremap <C-j> :bprevious<CR>       " previous buffer"
 nnoremap <C-k> :bnext<CR>           " next buffer"
 nnoremap <C-x> :bp <BAR> bd #<CR>   " close buffer and move to previous one"
 nnoremap <C-\> :vsp <CR>            " create vertical split"
-nnoremap <C-h> <C-W>w<CR>           " move to previous window
-nnoremap <C-l> <C-W>W<CR>           " move to next window
+nnoremap <C-S>- :sp <CR>            " create vertical split"
+nnoremap <C-h> <C-W>W<CR>           " move to previous window
+nnoremap <C-l> <C-W>w<CR>           " move to next window
 autocmd VimResized * wincmd =       " autoresize splits to equal proportions on window resize
 
-"map <C-h> <C-W><<CR>            " resize window to left
-"map <C-l> <C-W>><CR>            " resize window to right
+"map <C-,> <C-W><<CR>            " resize window to left
+"map <C-.> <C-W>><CR>            " resize window to right
 
 " auto close brackets and quotes
 inoremap (( ()<C-c>i
