@@ -22,6 +22,7 @@ set nocompatible
 if has('unix')
     set directory=~/.vim/tmp/swap            " keep all .swp files in one place (create dir!)
     set viminfo+='1000,n~/.vim/tmp/viminfo   " save vim state
+    let g:netrw_home='~/.vim/tmp'            " keep netrwhist file in tmp dir
     set guifont=TerminessTTF\ Nerd\ Font\ 16
 else
     set guifont=Consolas:h10:cANSI
