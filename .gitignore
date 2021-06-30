@@ -3,5 +3,3 @@ plugged/*
 # ignore all temporary stuff in tmp dir
 tmp/swap/*
 tmp/*
-#tmp/viminfo
-#tmp/.netrwhist
