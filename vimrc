@@ -1,5 +1,15 @@
 call plug#begin('~/.vim/plugged')
-Plug 'vim-scripts/taglist.vim'
+if executable('node')
+    " COC auto complete and linting
+    " To install python plugin run: :CocInstall coc-pyright
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+endif
+
+" auto install latest fzf binary
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fuzzy find stuff
+Plug 'junegunn/fzf.vim'
+
+Plug 'vim-scripts/taglist.vim' " needs ctags installed
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 "Plug 'elcoco/writemode.vim'
@@ -14,6 +24,7 @@ Plug 'ap/vim-css-color'
 " Snippets!
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug '~/.vim/plugged/test'
 call plug#end()
 
 set nocompatible
@@ -33,10 +44,26 @@ set encoding=utf8
 " hopefully helps against stupid syntax color problems when quotes are not closed
 syntax sync maxlines=1
 
-" snippets config
+" COC auto completion
+set updatetime=300                          " update faster than default 4s = 4000ms
+let b:coc_suggest_disable=1                 " turn off auto suggestions
+inoremap <silent><expr> <C-o> coc#refresh() " Use <c-o> to trigger completion.
+
+" FZF
+let g:fzf_tags_command = 'ctags -R'
+let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'highlight': 'Todo', 'border': 'sharp' } }
+let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
+let $FZF_DEFAULT_COMMAND="rg --files --hidden"
+
+" RIPGREP, Get text in files with Rg
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
+" ULTISNIPS, snippets config
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsListSnippets="<c-l>"              " list all snippets for current filetype
-"let g:UltiSnipsSnippetsDir = "~/.vim/ultisnips"  " custom snippets dir
 let g:UltiSnipsEditSplit="vertical"              " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
@@ -103,6 +130,7 @@ map [7~ <home>
 
 set splitright                      " create new splits on the right side by default
 set number                          " line numbers
+set signcolumn=number               " merge signcolumn and line number together
 set nowrap
 
 syntax enable
@@ -230,9 +258,6 @@ call matchadd('done', 'DONE')
 call matchadd('note', 'NOTE')
 call matchadd('bug',  'BUG')
 
-
-
-
 hi pythonDecorator  ctermfg=darkgray     ctermbg=235
 hi pythonDottedName ctermfg=darkgray     ctermbg=235
 hi pythonDot        ctermfg=darkgray     ctermbg=235
@@ -240,3 +265,6 @@ hi pythonDot        ctermfg=darkgray     ctermbg=235
 syn match  pythonDecorator   "@" display nextgroup=pythonDottedName skipwhite
 syn match  pythonDottedName  "[a-zA-Z_][a-zA-Z0-9_]*\(\.[a-zA-Z_][a-zA-Z0-9_]*\)*" display contained
 syn match  pythonDot         "\." display containedin=pythonDottedName
+
+" column before the linenumber
+highlight SignColumn ctermbg=NONE
