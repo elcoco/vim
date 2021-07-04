@@ -117,18 +117,18 @@ command Q q
 " remember position in file
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
-" syntax highlighting for nginx
-au BufRead,BufNewFile /etc/nginx/* set ft=nginx
-
 " highlight unnecessary whitespace
-au BufRead,BufNewFile * match badwhitespace /\s\+$/
+"au BufRead,BufNewFile * match badwhitespace /\s\+$/
 
 " highlight .conf files
 :autocmd BufRead,BufNewFile *.conf setf dosini
 
-syntax enable
-syntax sync maxlines=1      " hopefully helps against stjupid syntax color problems when quotes are not closed
+"syntax enable
+"syntax sync maxlines=1      " hopefully helps against stjupid syntax color problems when quotes are not closed
 colorscheme eco
+
+" syntax highlighting for nginx
+au BufRead,BufNewFile /etc/nginx/* set ft=nginx
 
 " hightlight checkboxes, dash and stuff
 hi checkbox_checked               ctermfg=green
