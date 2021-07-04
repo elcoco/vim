@@ -57,8 +57,6 @@ set hidden                          " Allow switching of buffers when changes ha
 set showmatch                       " Highlight matching brace
 set mouse=a                         " Enable mouse support in console
 set clipboard=unnamedplus           " sync vim register with X11 clipboard (+)
-
-" GVIM related config
 set scrolloff=10                    " keep at least n lines above/below
 set sidescrolloff=5                 " keep at least n lines left/right
 set scroll=5                        " Smooth srolling
@@ -71,6 +69,7 @@ set expandtab       " use spaces instead of tab character
 set cindent
 set cinkeys-=0#
 set indentkeys-=0#
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab    " 2 spaces in yml files
 
 " while searching, press <ENTER> to turn off highlighting and clear any message already displayed.
 nnoremap <silent> <Enter> :nohlsearch<Bar>:echo<CR>
@@ -109,32 +108,29 @@ inoremap '' ''<C-c>i
 map [8~ <end>
 map [7~ <home>
 
-" Python comments fix
+" python comments fix
 vmap # :s/^/#<CR>
 
-" Correct typing errors
+" correct typing errors
 command WQ wq
 command Wq wq
 command W w
 command Q q
 
-" Remember position in file
+" remember position in file
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
-" Syntax highlighting for nginx
+" syntax highlighting for nginx
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx
 
-" Highlight unnecessary whitespace
+" highlight unnecessary whitespace
 au BufRead,BufNewFile * match badwhitespace /\s\+$/
 
-" Highlight .conf files
+" highlight .conf files
 :autocmd BufRead,BufNewFile *.conf setf dosini
 
-" 2 spaces in yml files
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
 syntax enable
-syntax sync maxlines=1      " hopefully helps against stupid syntax color problems when quotes are not closed
+syntax sync maxlines=1      " hopefully helps against stjupid syntax color problems when quotes are not closed
 colorscheme eco
 
 " hightlight checkboxes, dash and stuff
