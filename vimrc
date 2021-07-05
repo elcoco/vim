@@ -46,7 +46,7 @@ if has('unix')
 endif
 
 set encoding=utf8
-set splitright                      " create new splits on the right side by default
+set splitbelow splitright           " create new splits on the right side by default
 set number                          " line numbers
 set signcolumn=number               " merge signcolumn and line number together
 set nowrap                          " don't wrap lines
@@ -57,6 +57,7 @@ set clipboard=unnamedplus           " sync vim register with X11 clipboard (+)
 set scrolloff=10                    " keep at least n lines above/below
 set sidescrolloff=5                 " keep at least n lines left/right
 set scroll=5                        " Smooth srolling
+vnoremap . :normal .<CR>            " perform dot commands over visual block
 
 " tab options
 set tabstop=4       " set tab width to 4 spaces
@@ -87,8 +88,6 @@ endfunction
 
 set foldtext=MyFoldText()
 set fillchars=fold:\ 
-
-nnoremap    <C-a> :w<CR>:!sk -l ; arduino --upload % ; sk -u<CR>
 
 " BUFFERS and SPLITS
 nnoremap <C-n> :enew<cr>            " new buffer
@@ -122,6 +121,12 @@ command WQ wq
 command Wq wq
 command W w
 command Q q
+
+" save file with sudo
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
+" upload file to MCU
+nnoremap    <C-a> :w<CR>:!sk -l ; arduino --upload % ; sk -u<CR>
 
 " remember position in file
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
