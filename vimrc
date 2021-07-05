@@ -79,6 +79,15 @@ set foldnestmax=2                   " fold only 2 levels (only fold classes and 
 nnoremap <space> za                 " toggle fold with spacebar
 vnoremap <space> zf
 
+function! MyFoldText()
+    let line = getline(v:foldstart)
+    let foldedlinecount = v:foldend - v:foldstart + 1
+    return '▶ '. foldedlinecount . line
+endfunction
+
+set foldtext=MyFoldText()
+set fillchars=fold:\ 
+
 nnoremap    <C-a> :w<CR>:!sk -l ; arduino --upload % ; sk -u<CR>
 
 " BUFFERS and SPLITS
