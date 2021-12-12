@@ -1,0 +1,42 @@
+snippet switch "switch case" b
+switch (var) {
+	case 'x':
+		break;
+	default:
+		break;
+}
+endsnippet
+
+
+snippet getopt "getopt" b
+int option;
+
+// : indicates option needs an argument
+// otherwise option is a flag
+while((option = getopt(argc, argv, "x:r")) != -1){ //get option from the getopt() method
+	switch (option) {
+		case 'x':
+			arg_x = optarg;
+			break;
+		case 'r':
+			break;
+		case ':': 
+			printf("option needs a value\n"); 
+			return NULL;
+		case '?': 
+			print_usage();
+			return NULL;
+   }
+}
+// no arguments specified
+if (argc == 1) {
+	print_usage();
+	return NULL;
+}
+endsnippet
+
+
+snippet guards "guards" b
+#ifndef ${0:LIBNAME}_H
+#define ${0:LIBNAME}_H
+endsnippet
