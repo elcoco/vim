@@ -1,0 +1,13 @@
+snippet js "javascript bootstrap" b
+"use strict";
+
+document.addEventListener("readystatechange", (event) => {
+    if (event.target.readyState === "complete") {
+        initApp()
+    }
+})
+
+const initApp = () => {
+	${0}
+}
+endsnippet

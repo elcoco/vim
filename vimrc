@@ -33,6 +33,10 @@ Plug 'ap/vim-css-color'
 " Snippets!
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+
+" Checkbox
+Plug 'jkramer/vim-checkbox'
+
 Plug '~/.vim/plugged/test'
 call plug#end()
 
