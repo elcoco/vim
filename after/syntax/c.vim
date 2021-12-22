@@ -26,25 +26,43 @@ syn match cDone 'DONE'
 syn match cNote 'NOTE'
 syn match cBug  'BUG'
 
-hi def link cType  Type
+syn match cTypeBool  '\sbool\s'
+
+hi def link cTypeBool   cType
+
+"syn match cCase  '^\s*case\s'
+
+"hi def link cTypeBool     Type
+hi def link cType         Type
+
+" case 
+hi def link cLabel        Label
+
+" break, return
+hi def link cStatement    Statement
+
+" if, else, switch
+hi def link cConditional  Conditional
+
 
 " sizeof() etc
-hi def link cOperator  Operator     
+hi def link cOperator     Operator     
+hi def link cDefine       Define     
+hi def link cInclude      Include     
+hi def link cMacro        Macro     
+hi def link cStructure    Structure     
+hi def link cTypedef      Typedef     
+hi def link cIdentifier   Identifier     
 
 " Default highlighting
-hi def link cBoolean  Boolean
+"hi def link cBoolean  Boolean
 hi def link cAnsiName Identifier
 
-syn match cCondOperator	"<<\|>>\|&&\|||\|++\|--"
-syn match cCondOperator	"==\|!=\|<=\|>=\| > \| < "
+syn match cCondOperator	"<<\|>>\|&&\|||\|++\|--\|==\|!=\|<=\|>=\| > \| < \|!\| ? \| : "
 
-
-" Highlight function names
-if get(g:, 'cpp_function_highlight', 1)
-    syn match cUserFunction "\<\h\w*\>\(\s\|\n\)*("me=e-1 contains=cParen,cCppParen
-    hi def link cUserFunction Function
-endif
-
+" \zs, \ze = start/end match
+syn match cFunctionCall "\<\h\w*\>\(\s\|\n\)*("me=e-1 contains=cParen,cCppParen
+syn match cFunction     "\s\zs\w\+\s*\ze(.*)\(\n{\|\(\s\)\?{\)"
 
 " Common ANSI-standard Names
 syn keyword cAnsiName

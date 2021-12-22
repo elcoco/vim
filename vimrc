@@ -153,22 +153,33 @@ au BufRead,BufNewFile /etc/nginx/* set ft=nginx
 "" C specific, uses custom syntax file
 " TODO function definition and calling is same color
 "      and very difficult to parse otherwise
-hi cUserFunction               ctermfg=green
-hi cMemberAccess               ctermfg=gray
+hi cFunction       cterm=bold   ctermfg=green
+hi cFunctionCall   cterm=None   ctermfg=gray
+hi cMemberAccess   cterm=None   ctermfg=gray
 
-hi cType                       ctermfg=blue
-hi cUserType                   ctermfg=blue
-hi cPosixType                  ctermfg=blue
+hi cLabel          cterm=bold   ctermfg=blue
+hi cStatement      cterm=bold   ctermfg=blue
+hi cConditional    cterm=bold   ctermfg=blue
+hi cDefine         cterm=bold   ctermfg=blue
+hi cInclude        cterm=bold   ctermfg=blue
+hi cMacro          cterm=bold   ctermfg=blue
 
-hi cBraces                     ctermfg=gray
-hi cCondOperator               ctermfg=blue
+hi cTypedef        cterm=bold   ctermfg=green
+hi cStructure      cterm=bold   ctermfg=green
 
-hi cTodo                       ctermfg=blue        
-hi cDone                       ctermfg=green       
-hi cNote                       ctermfg=magenta     
-hi cBug                        ctermfg=red         
+hi cType                        ctermfg=blue
+hi cUserType                    ctermfg=blue
+hi cPosixType                   ctermfg=blue
 
-hi cOperator                   ctermfg=green         
+hi cBraces                      ctermfg=gray
+hi cCondOperator                ctermfg=blue
+
+hi cTodo                        ctermfg=blue        
+hi cDone                        ctermfg=green       
+hi cNote                        ctermfg=magenta     
+hi cBug                         ctermfg=red         
+
+hi cOperator                    ctermfg=green         
 
 " end C specific
 
