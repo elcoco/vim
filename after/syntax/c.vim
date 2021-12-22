@@ -26,6 +26,8 @@ syn match cDone 'DONE'
 syn match cNote 'NOTE'
 syn match cBug  'BUG'
 
+syn match cDot  '\w\zs\.\ze\w'
+
 syn match cTypeBool  '\sbool\s'
 
 hi def link cTypeBool   cType
@@ -58,7 +60,7 @@ hi def link cIdentifier   Identifier
 "hi def link cBoolean  Boolean
 hi def link cAnsiName Identifier
 
-syn match cCondOperator	"<<\|>>\|&&\|||\|++\|--\|==\|!=\|<=\|>=\| > \| < \|!\| ? \| : "
+syn match cCondOperator	"<<\|>>\|&&\|||\|++\|--\|==\|!=\|<=\|>=\|>\|<\|!\| ? \| : "
 
 " \zs, \ze = start/end match
 syn match cFunctionCall "\<\h\w*\>\(\s\|\n\)*("me=e-1 contains=cParen,cCppParen
@@ -70,7 +72,7 @@ syn keyword cAnsiName
         \ errno environ and bitor not_eq xor and_eq compl or xor_eq bitand not or_eq
 
 " Booleans
-syn keyword cBoolean true false TRUE FALSE
+"syn keyword cBoolean true false TRUE FALSE
 
 
 

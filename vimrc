@@ -155,17 +155,17 @@ au BufRead,BufNewFile /etc/nginx/* set ft=nginx
 "      and very difficult to parse otherwise
 hi cFunction       cterm=bold   ctermfg=green
 hi cFunctionCall   cterm=None   ctermfg=gray
-hi cMemberAccess   cterm=None   ctermfg=gray
+hi cMemberAccess   cterm=None   ctermfg=white
 
 hi cLabel          cterm=bold   ctermfg=blue
 hi cStatement      cterm=bold   ctermfg=blue
 hi cConditional    cterm=bold   ctermfg=blue
-hi cDefine         cterm=bold   ctermfg=blue
-hi cInclude        cterm=bold   ctermfg=blue
+hi cDefine         cterm=none   ctermfg=blue
+hi cInclude        cterm=none   ctermfg=blue
 hi cMacro          cterm=bold   ctermfg=blue
 
 hi cTypedef        cterm=bold   ctermfg=green
-hi cStructure      cterm=bold   ctermfg=green
+hi cStructure      cterm=None   ctermfg=green
 
 hi cType                        ctermfg=blue
 hi cUserType                    ctermfg=blue
@@ -178,6 +178,8 @@ hi cTodo                        ctermfg=blue
 hi cDone                        ctermfg=green       
 hi cNote                        ctermfg=magenta     
 hi cBug                         ctermfg=red         
+
+hi cDot           cterm=bold    ctermfg=gray
 
 hi cOperator                    ctermfg=green         
 
