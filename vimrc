@@ -148,50 +148,76 @@ colorscheme eco
 " syntax highlighting for nginx
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx
 
-" hightlight checkboxes, dash and stuff
-hi checkbox_checked               ctermfg=green
-hi checkbox                       ctermfg=red
-hi option                         ctermfg=blue
-hi header1                        ctermfg=magenta
-hi header2                        ctermfg=blue
-hi header3                        ctermfg=white
-hi arrow                          ctermfg=blue
-hi ipaddr                         ctermfg=green
-hi url                            ctermfg=green
-hi email                          ctermfg=green
-hi edit                           ctermfg=magenta
-hi badwhitespace                  ctermbg=darkgray
 
-hi todo               cterm=bold  ctermfg=blue        ctermbg=None
-hi done               cterm=bold  ctermfg=green       ctermbg=None
-hi note               cterm=bold  ctermfg=magenta     ctermbg=None
-hi bug                cterm=bold  ctermfg=red         ctermbg=None
 
-hi pythonDecorator                ctermfg=darkgray    ctermbg=235
-hi pythonDottedName               ctermfg=darkgray    ctermbg=235
-hi pythonDot                      ctermfg=darkgray    ctermbg=235
+"" C specific, uses custom syntax file
+" TODO function definition and calling is same color
+"      and very difficult to parse otherwise
+hi cUserFunction               ctermfg=green
+hi cMemberAccess               ctermfg=gray
 
-" column before the linenumber
-hi SignColumn                                         ctermbg=NONE
+hi cType                       ctermfg=blue
+hi cUserType                   ctermfg=blue
+hi cPosixType                  ctermfg=blue
 
-syn match checkbox_checked  /^ *\[x\] /
-syn match checkbox          /^ *\[ \] /
-syn match header1           /^ *===.*/
-syn match header3           /^ *-.*/
-syn match header2           /^ *--.*/
-syn match option            /^ *\$/
-syn match arrow             /=> /
-syn match edit              /^ *edit: /
-syn match arrow             /\-> /
-syn match ipaddr            /\(\(25\_[0-5]\|2\_[0-4]\_[0-9]\|\_[01]\?\_[0-9]\_[0-9]\?\)\.\)\{3\}\(25\_[0-5]\|2\_[0-4]\_[0-9]\|\_[01]\?\_[0-9]\_[0-9]\?\)/
-syn match url               /https\?:\/\/\(\w\+\(:\w\+\)\?@\)\?\([A-Za-z][-_0-9A-Za-z]*\.\)\{1,}\(\w\{2,}\.\?\)\{1,}\(:[0-9]\{1,5}\)\?\S*/
-syn match email             /\S\+@\S\+/
+hi cBraces                     ctermfg=gray
+hi cCondOperator               ctermfg=blue
 
-syn match todo              'TODO'
-syn match done              'DONE'
-syn match note              'NOTE'
-syn match bug               'BUG'
+hi cTodo                       ctermfg=blue        
+hi cDone                       ctermfg=green       
+hi cNote                       ctermfg=magenta     
+hi cBug                        ctermfg=red         
 
-syn match pythonDecorator   "@" display nextgroup=pythonDottedName skipwhite
-syn match pythonDottedName  "[a-zA-Z_][a-zA-Z0-9_]*\(\.[a-zA-Z_][a-zA-Z0-9_]*\)*" display contained
-syn match pythonDot         "\." display containedin=pythonDottedName
+hi cOperator                   ctermfg=green         
+
+" end C specific
+
+
+
+"" hightlight checkboxes, dash and stuff
+"hi checkbox_checked               ctermfg=green
+"hi checkbox                       ctermfg=red
+"hi option                         ctermfg=blue
+"hi header1                        ctermfg=magenta
+"hi header2                        ctermfg=blue
+"hi header3                        ctermfg=white
+"hi arrow                          ctermfg=blue
+"hi ipaddr                         ctermfg=green
+"hi url                            ctermfg=green
+"hi email                          ctermfg=green
+"hi edit                           ctermfg=magenta
+"hi badwhitespace                  ctermbg=darkgray
+"
+"hi todo               cterm=bold  ctermfg=blue        ctermbg=None
+"hi done               cterm=bold  ctermfg=green       ctermbg=None
+"hi note               cterm=bold  ctermfg=magenta     ctermbg=None
+"hi bug                cterm=bold  ctermfg=red         ctermbg=None
+"
+"hi pythonDecorator                ctermfg=darkgray    ctermbg=235
+"hi pythonDottedName               ctermfg=darkgray    ctermbg=235
+"hi pythonDot                      ctermfg=darkgray    ctermbg=235
+"
+"" column before the linenumber
+"hi SignColumn                                         ctermbg=NONE
+"
+"syn match checkbox_checked  /^ *\[x\] /
+"syn match checkbox          /^ *\[ \] /
+"syn match header1           /^ *===.*/
+"syn match header3           /^ *-.*/
+"syn match header2           /^ *--.*/
+"syn match option            /^ *\$/
+"syn match arrow             /=> /
+"syn match edit              /^ *edit: /
+"syn match arrow             /\-> /
+"syn match ipaddr            /\(\(25\_[0-5]\|2\_[0-4]\_[0-9]\|\_[01]\?\_[0-9]\_[0-9]\?\)\.\)\{3\}\(25\_[0-5]\|2\_[0-4]\_[0-9]\|\_[01]\?\_[0-9]\_[0-9]\?\)/
+"syn match url               /https\?:\/\/\(\w\+\(:\w\+\)\?@\)\?\([A-Za-z][-_0-9A-Za-z]*\.\)\{1,}\(\w\{2,}\.\?\)\{1,}\(:[0-9]\{1,5}\)\?\S*/
+"syn match email             /\S\+@\S\+/
+"
+"syn match todo              'TODO'
+"syn match done              'DONE'
+"syn match note              'NOTE'
+"syn match bug               'BUG'
+"
+"syn match pythonDecorator   "@" display nextgroup=pythonDottedName skipwhite
+"syn match pythonDottedName  "[a-zA-Z_][a-zA-Z0-9_]*\(\.[a-zA-Z_][a-zA-Z0-9_]*\)*" display contained
+"syn match pythonDot         "\." display containedin=pythonDottedName
