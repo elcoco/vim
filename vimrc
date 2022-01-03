@@ -22,6 +22,8 @@ Plug 'vim-scripts/taglist.vim' " needs ctags installed
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 "Plug 'elcoco/writemode.vim'
+"
+Plug 'tpope/vim-fugitive'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
