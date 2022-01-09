@@ -149,6 +149,7 @@ colorscheme eco
 
 " syntax highlighting for nginx
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx
+au BufRead,BufNewFile .zshrc set syntax=sh
 
 
 
