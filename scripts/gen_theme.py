@@ -72,6 +72,8 @@ class App():
         r.add('Operator',	    'bold',	            green,      default)
         r.add('Statement',      'bold',	            blue,       default)
 
+        r.add('SignColumn',     '',	                default,    bg)
+
         r.add('Directory',      '',                 blue,       default)
         r.add('ErrorMsg',	    'bold',	            red,	    black)
         r.add('NonText',	    '',	                bblack,     default)

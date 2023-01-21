@@ -10,6 +10,7 @@ if executable('node')
     Plug 'neoclide/coc-snippets',   {'do': 'yarn install --frozen-lockfile'}
     Plug 'neoclide/coc-yaml',       {'do': 'yarn install --frozen-lockfile'}
     Plug 'weirongxu/coc-calc',      {'do': 'yarn install --frozen-lockfile'}
+    Plug 'clangd/coc-clangd',       {'do': 'yarn install --frozen-lockfile'}
 endif
 
 " auto installs latest FZF binary
@@ -19,9 +20,10 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " fuzzy find stuff
 Plug 'junegunn/fzf.vim'
 
 Plug 'vim-scripts/taglist.vim' " needs ctags installed
-Plug 'scrooloose/nerdtree'
+
+"Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-"Plug 'elcoco/writemode.vim'
 "
 Plug 'tpope/vim-fugitive'
 
@@ -33,8 +35,8 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'ap/vim-css-color'
 
 " Snippets!
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
 
 " Checkbox
 Plug 'jkramer/vim-checkbox'
@@ -109,11 +111,11 @@ autocmd VimResized * wincmd =       " autoresize splits to equal proportions on 
 "map <C-.> <C-W>><CR>               " resize window to right
 
 " auto close brackets and quotes
-inoremap (( ()<C-c>i
-inoremap [[ []<C-c>i
-inoremap {{ {}<C-c>i
-inoremap "" ""<C-c>i
-inoremap '' ''<C-c>i
+"inoremap (( ()<C-c>i
+"inoremap [[ []<C-c>i
+"inoremap {{ {}<C-c>i
+"inoremap "" ""<C-c>i
+"inoremap '' ''<C-c>i
 
 " remap the end and home keys as they somehow do something else by default
 map [8~ <end>
@@ -130,9 +132,6 @@ command Q q
 
 " save file with sudo
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
-
-" upload file to MCU
-nnoremap    <C-a> :w<CR>:!sk -l ; arduino --upload % ; sk -u<CR>
 
 " remember position in file
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
@@ -237,3 +236,5 @@ hi cOperator                    ctermfg=green
 "syn match pythonDecorator   "@" display nextgroup=pythonDottedName skipwhite
 "syn match pythonDottedName  "[a-zA-Z_][a-zA-Z0-9_]*\(\.[a-zA-Z_][a-zA-Z0-9_]*\)*" display contained
 "syn match pythonDot         "\." display containedin=pythonDottedName
+
+"source ~/.vim/coc.vimrc

@@ -1,8 +1,9 @@
-hi Normal                              ctermfg=gray       ctermbg=235     
+hi Normal                              ctermfg=white      ctermbg=235     
 hi Comment                             ctermfg=darkgray                   
 hi Constant                            ctermfg=red                        
 hi Operator      cterm=bold            ctermfg=green                      
 hi Statement     cterm=bold            ctermfg=blue                       
+hi SignColumn                                             ctermbg=235     
 hi Directory                           ctermfg=blue                       
 hi ErrorMsg      cterm=bold            ctermfg=red        ctermbg=black   
 hi NonText                             ctermfg=darkgray                   
@@ -10,25 +11,25 @@ hi SpecialKey                          ctermfg=darkgray
 hi LineNr                              ctermfg=darkgray                   
 hi IncSearch     cterm=reverse                                            
 hi Search                              ctermfg=black      ctermbg=yellow  
-hi Visual        cterm=bold            ctermfg=gray       ctermbg=darkgray
+hi Visual        cterm=bold            ctermfg=white      ctermbg=darkgray
 hi VisualNOS     cterm=bold,underline                                     
 hi MoreMsg                             ctermfg=green                      
 hi ModeMsg       cterm=bold                                               
 hi Question                            ctermfg=green                      
 hi WarningMsg                          ctermfg=red                        
 hi WildMenu                            ctermfg=black      ctermbg=yellow  
-hi Folded                              ctermfg=white      ctermbg=black   
-hi FoldColumn                          ctermfg=blue       ctermbg=gray    
+hi Folded                                                 ctermbg=black   
+hi FoldColumn                          ctermfg=blue       ctermbg=white   
 hi DiffAdd                                                ctermbg=blue    
 hi DiffChange                                             ctermbg=magenta 
 hi DiffDelete    cterm=bold            ctermfg=lightblue  ctermbg=cyan    
 hi DiffText      cterm=bold                               ctermbg=red     
-hi StatusLine                          ctermfg=gray       ctermbg=NONE    
-hi StatusLineNC                        ctermfg=gray       ctermbg=NONE    
+hi StatusLine                          ctermfg=white      ctermbg=NONE    
+hi StatusLineNC                        ctermfg=white      ctermbg=NONE    
 hi VertSplit     cterm=bold            ctermfg=darkgray   ctermbg=NONE    
 hi Title                               ctermfg=magenta                    
-hi Pmenu                               ctermfg=gray       ctermbg=black   
-hi PmenuSel      cterm=bold            ctermfg=gray       ctermbg=darkgray
+hi Pmenu                               ctermfg=white      ctermbg=black   
+hi PmenuSel      cterm=bold            ctermfg=white      ctermbg=darkgray
 hi PreProc                             ctermfg=blue                       
 hi Type                                ctermfg=green                      
 hi Identifier                          ctermfg=green                      
