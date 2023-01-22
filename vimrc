@@ -121,6 +121,8 @@ autocmd VimResized * wincmd =       " autoresize splits to equal proportions on 
 map [8~ <end>
 map [7~ <home>
 
+map <silent><C-t> :term<CR>
+
 " python comments fix
 vmap # :s/^/#<CR>
 

@@ -1,15 +1,29 @@
 
 " Switch between header and implementation file
 nmap <silent><C-h> :CocCommand clangd.switchSourceHeader<CR>
-
-
-" COC auto completion
 set updatetime=300                          " update faster than default 4s = 4000ms
 "let b:coc_suggest_disable=1                 " turn off auto suggestions
 "inoremap <silent><expr> <C-o> coc#refresh() " Use <c-o> to trigger completion.
+"
+
+" use <tab> to trigger completion and navigate to the next complete item
+"function! CheckBackspace() abort
+"  let col = col('.') - 1
+"  return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
+"
+"inoremap <silent><expr> <Tab>
+"      \ coc#pum#visible() ? coc#pum#next(1) :
+"      \ CheckBackspace() ? "\<Tab>" :
+"      \ coc#refresh()
 
 
-
+" Recently vim can merge signcolumn and number column into one
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
 
 
@@ -29,7 +43,7 @@ set updatetime=300
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved
-set signcolumn=yes
+"set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate
 " NOTE: There's always complete item selected by default, you may want to enable
