@@ -1,0 +1,7 @@
+{  
+    // disable suggest popup menu
+    "suggest.autoTrigger": "none",
+
+    // hints in function calls (eg: printf(format: "bla");)
+    "inlayHint.enable": false
+}
